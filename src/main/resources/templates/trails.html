@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Trails</title>
+</head>
+<body>
+    <h2>There are all our trails</h2>
+    <table th:each="trail : ${allTrails}">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Region</th>
+                <th>Date</th>
+                <th>Photo</th>
+                <th>Video</th>
+                <th>Riders</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th th:text="${trail.id}">ID</th>
+                <th th:text="${trail.title}">Title</th>
+                <th th:text="${trail.region}">Region</th>
+                <th th:text="${trail.date}">Date</th>
+                <th th:text="(${trail.photo} != null) ? 'avaliable' : 'not avaliable' ">Photos</th>
+                <th th:text="(${trail.video} != null) ? 'avaliable' : 'not avaliable' ">Video</th>
+                <th th:text="${trail.riders}">Riders</th>
+                <button type="submit" name="show" value="${trail.id}">Show</button>
+                <button type="submit" name="edit" value="${trail.id}">Show</button>
+                <button type="submit" name="delete" value="${trail.id}">Show</button>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
